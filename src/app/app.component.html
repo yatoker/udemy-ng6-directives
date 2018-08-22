@@ -5,19 +5,13 @@
       <br><br>
       <ul class="list-group">
         <div *ngIf="onlyOdd">
-          <li 
-            class="list-group-item" 
-            [ngClass]="{odd: odd % 2 !== 0}" 
-            [ngStyle]="{backgroundColor: odd % 2 !== 0 ? 'yellow' : 'transparent'}"
+          <li class="list-group-item" [ngClass]="{odd: odd % 2 !== 0}" [ngStyle]="{backgroundColor: odd % 2 !== 0 ? 'yellow' : 'transparent'}"
             *ngFor="let odd of oddNumbers">
             {{ odd }}
           </li>
         </div>
         <div *ngIf="!onlyOdd">
-          <li 
-            class="list-group-item" 
-            [ngClass]="{odd: even % 2 !== 0}" 
-            [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'yellow' : 'transparent'}"
+          <li class="list-group-item" [ngClass]="{odd: even % 2 !== 0}" [ngStyle]="{backgroundColor: even % 2 !== 0 ? 'yellow' : 'transparent'}"
             *ngFor="let even of evenNumbers">
             {{ even }}
           </li>
@@ -26,6 +20,14 @@
 
       <p appBasicHighlight>Style me with basic directive</p>
       <p [appBetterHighlight]="'silver'" [highlightColor]="'gray'">Style me with better directive</p>
+
+      <div [ngSwitch]="value">
+        <p *ngSwitchCase="5">Value is 5</p>
+        <p *ngSwitchCase="10">Value is 10</p>
+        <p *ngSwitchCase="20">Value is 20</p>
+        <p *ngSwitchCase="50">Value is 50</p>
+        <p *ngSwitchDefault>Value is default</p>
+      </div>
     </div>
   </div>
 </div>
